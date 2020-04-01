@@ -2,11 +2,11 @@
 
 function [x] = Fitting1Resonance(AngleData, wLPdata, wUPdata, w1, lbO10, ubO10, lbneff, ubneff, lbE0, ubE0, p_init) 
 
-% lb is the lowerbound definition on all paramers x
+% lb is the lowerbound definition on all parameters x
 
 lb = [w1, lbO10, lbneff, lbE0];
 
-% ub is the upperbound definition on all paramers x
+% ub is the upperbound definition on all parameters x
 
 ub = [w1, ubO10, ubneff, ubE0];
 
@@ -30,7 +30,7 @@ options.OptimalityTolerance = 1e-18;
 
 [x,resnorm,resid,exitflag,output,lambda,J]= lsqcurvefit(fittingFunction, p_init, AngleData, wdata, lb, ub, options);
  
-%Confidence Inrvals on the Paramers
+%Confidence Intervals on the Parameters
 
 ci = nlparci(x,resid,'jacobian',J);
 
